@@ -24,3 +24,5 @@ MusicBO Knowledge Graph stores information about the role of music in the city o
 MusicBO Knowledge Graph is available via the **[MusicBO SPARQL endpoint](https://polifonia.disi.unibo.it/musicbo/sparql)**.
 
 MusicBO Knowledge Graph is automatically extracted from natural language texts by applying a custom text-to-Knowledge Graph (text2KG) process to the MusicBO corpus documents. The MusicBO corpus is part of the **[Polifonia Corpus](https://github.com/polifonia-project/Polifonia-Corpus)**. The text2KG process leverages two modules: the **[Polifonia Knowledge Extractor](https://github.com/polifonia-project/Polifonia-Knowledge-Extractor)** pipeline and the **[AMR2Fred](https://github.com/infovillasimius/amr2Fred)** tool. The two modules are orchestrated by the **[Machine Reading](https://github.com/anuzzolese/machine-reading)** suite, which queries both modules and generates RDF named graphs from natural language text.
+
+MusicBO Knowledge Graph is described in a dedicated **[MELODY data story](https://projects.dharc.unibo.it/melody/musicbo/music_in_bologna_textual_corpus_overview)**.
