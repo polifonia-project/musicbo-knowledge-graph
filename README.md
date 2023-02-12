@@ -52,6 +52,12 @@ Here's an excerpt of the csv file:
 |MusicBO  |4          |363        |And "off and on" we should be sure to undertake something to give vent to our energies in the outer world.                                                                                                                                                                                                                                                                                                                                                      |https://www.gutenberg.org/cache/epub/4234/pg4234.txt|https://doi.org/10.5281/zenodo.6672165|
 |MusicBO  |35         |28         |To this Artusi replied in Considerationi musicali, printed in Seconda parte dell'Artusi (1603), mockingly dedicated to Bottrigari.                                                                                                                                                                                                                                                                                                                              |https://doi.org/10.1093/gmo/9781561592630.article.01383|https://doi.org/10.5281/zenodo.6672165|
 
-We provide in folder "data\" of this repository the KGs obtained through our Text2KG process described above.
+We provide in folder "data\" of this repository the KGs obtained through our Text2KG process described above. Stats of the KGs latest release can be found in the table below:
+
+| **Languages** | #sent-AMR graph pairs (Text2AMR) | #filtered sent-AMR graph pairs (Automatic metrics evaluation) | #named graphs (AMR2RDF) | #triples |
+|---------------|----------------------------------|---------------------------------------------------------------|-------------------------|----------|
+| **EN**        | 51.814                           | 5.965                                                         | 5.724                   | 410.132  |
+| **ITA**       | 10.563                           | 1.815                                                         | 1.750                   | 117.758  |
+| **TOTAL**     | 15.747                           | 7.780                                                         | 7.474                   | 527.890  |
 
 MusicBO Knowledge Graph is described in a dedicated **[MELODY data story](https://projects.dharc.unibo.it/melody/musicbo/music_in_bologna_textual_corpus_overview)**.
