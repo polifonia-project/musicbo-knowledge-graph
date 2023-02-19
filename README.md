@@ -56,8 +56,8 @@ We provide in folder "data\" of this repository the KGs obtained through our Tex
 
 | **Languages** | #sent-AMR graph pairs (Text2AMR) | #filtered sent-AMR graph pairs (Automatic metrics evaluation) | #named graphs (AMR2RDF) | #triples |
 |---------------|----------------------------------|---------------------------------------------------------------|-------------------------|----------|
-| **EN**        | 51.814                           | 5.965                                                         | 5.724                   | 410.132  |
-| **ITA**       | 10.563                           | 1.815                                                         | 1.750                   | 117.758  |
-| **TOTAL**     | 15.747                           | 7.780                                                         | 7.474                   | 527.890  |
+| **EN**        | 51.814                           | 5.965                                                         | 5.798                   | 410.132  |
+| **ITA**       | 10.563                           | 1.815                                                         | 1.759                   | 118.162  |
+| **TOTAL**     | 15.747                           | 7.780                                                         | 7.557                   | 531.222  |
 
 MusicBO Knowledge Graph is described in a dedicated **[MELODY data story](https://projects.dharc.unibo.it/melody/musicbo/music_in_bologna_textual_corpus_overview)**.
