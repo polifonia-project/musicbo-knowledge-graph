@@ -60,4 +60,4 @@ We provide in folder "data\" of this repository the KGs obtained through our Tex
 | **ITA**       | 10.563                           | 1.815                                                         | 1.759                   | 118.162  |
 | **TOTAL**     | 15.747                           | 7.780                                                         | 7.557                   | 531.222  |
 
-MusicBO Knowledge Graph is described in a dedicated **[MELODY data story](https://projects.dharc.unibo.it/melody/musicbo/music_in_bologna_textual_corpus_overview)**.
+MusicBO Knowledge Graph is described in a dedicated **[MELODY data story](https://projects.dharc.unibo.it/melody/musicbo/music_in_bologna_knowledge_graph_overview)**.
