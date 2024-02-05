@@ -1,0 +1,21 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mbo: <https://w3id.org/polifonia/ontology/musicbo/>
+
+SELECT ?a ?propLabel ?b ?strength
+WHERE {
+  # Q9726 is Gioacchino Rossini. Remove the BIND statement
+  # to remove the constraint on him.
+  BIND (<http://www.wikidata.org/entity/Q9726> AS ?a)
+    
+  ?a ?prop ?b .
+  
+  ?prop rdfs:label ?propLabel .
+  [] a mbo:LinkStrength ;
+     mbo:hasSource ?a ;
+     mbo:hasTarget ?b ;
+     mbo:hasStrength ?strength .
+  
+  FILTER(CONTAINS(STR(?a), "wikidata"))
+  FILTER(CONTAINS(STR(?b), "wikidata"))
+}
+ORDER BY DESC(?strength)

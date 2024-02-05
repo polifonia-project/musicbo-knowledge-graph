@@ -1,0 +1,52 @@
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+PREFIX amr: <http://www.ontologydesignpatterns.org/ont/amr/>
+PREFIX stmr: <https://w3id.org/stlab/machine_reading.owl#>
+
+PREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
+PREFIX mbr: <https://w3id.org/polifonia/resource/musicbo/>
+PREFIX mbo: <https://w3id.org/polifonia/ontology/musicbo/>
+
+
+CONSTRUCT {
+  ?situationIRI a dul:Situation ;
+    			dul:satisfies ?frame ;
+    			?role_1 ?wd_a ;
+    			?role_2 ?wd_b .
+  
+  ?wd_a ?role_1_property ?wd_b .
+  ?wd_b ?role_2_property ?wd_a .
+  	
+  ?role_1_property a owl:ObjectProperty ;
+    			   rdfs:subPropertyOf mbo:frameBinaryProjection .
+  ?role_2_property a owl:ObjectProperty ;
+    			   rdfs:subPropertyOf mbo:frameBinaryProjection .
+} WHERE {
+  GRAPH ?g {
+    ?frame ?role_1 ?involved_a ;
+           ?role_2 ?involved_b .
+    
+    FILTER(?involved_a != ?involved_b)
+    FILTER(REGEX(STR(?role_1), "(rdf|owl)") = FALSE)
+    FILTER(REGEX(STR(?role_2), "(rdf|owl)") = FALSE)
+    
+    # Craft binary projection property between the two roles
+    BIND(REPLACE(STR(?role_1), ".*/", "") AS ?role_1_name)    
+    BIND(REPLACE(STR(?role_2), ".*/", "") AS ?role_2_name)
+    BIND(REPLACE(STR(?frame), ".*/", "") AS ?frame_name)
+    
+    BIND(IRI(CONCAT(STR(mbo:), "takes_", STR(?role_1_name), "_role_in_frame_", STR(?frame_name), "_with_other_role_", STR(?role_2_name))) AS ?role_1_property)
+    BIND(IRI(CONCAT(STR(mbo:), "takes_", STR(?role_2_name), "_role_in_frame_", STR(?frame_name), "_with_other_role_", STR(?role_1_name))) AS ?role_2_property)
+    
+    ?involved_a owl:sameAs ?wd_a .
+    ?involved_b owl:sameAs ?wd_b .
+  
+    # Involved a and b should be different and both aligned to wikidata
+  	FILTER(CONTAINS(STR(?wd_a), "wikidata"))
+  	FILTER(CONTAINS(STR(?wd_b), "wikidata"))
+  }
+}
